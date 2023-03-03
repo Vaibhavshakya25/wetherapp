@@ -42,7 +42,7 @@ function renderUI(data){
 
 async function fetctUserweatherdata(coordinate){
     const {latitude,longitude} = coordinate;
-    console.log('latitude->'+lat+'longitude->'+lon);
+    // console.log('latitude->'+lat+'longitude->'+lon);
     grantlocation_tab.classList.remove('active');
     loader.classList.add('active');
     try{
