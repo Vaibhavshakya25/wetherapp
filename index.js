@@ -38,6 +38,7 @@ function renderUI(data){
     windspeed.innerText = `${data?.wind?.speed} km/s`;
     humidity.innerText = `${data?.main?.humidity}`;
     cloud.innerText = `${data?.clouds?.all}%`;
+    your_tab_window.classList.add('active');
 }
 
 async function fetctUserweatherdata(coordinate){
@@ -51,7 +52,6 @@ async function fetctUserweatherdata(coordinate){
         const data = await response.json();
         loader.classList.remove('active');
         renderUI(data);
-        your_tab_window.classList.add('active');
     }
     catch(err){
         loader.classList.remove('active');
