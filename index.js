@@ -30,14 +30,14 @@ function renderUI(data){
     const humidity = document.querySelector('[humidity]');
     const cloud = document.querySelector('[cloud]');
 
-    city.innerText = data?.name;
-    // flag.src = `https://flagcdn.com/16x12/${data?.sys?.country.toLowerCase()}.png`;
-    // description.innerText = data?.weather?.description;
-    // wethericon.src = `http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
-    // temperature.innerText = data?.main?.temp;
-    // windspeed.innerText = `${data?.wind?.speed} km/s`;
-    // humidity.innerText = `${data?.main?.humidity}`;
-    // cloud.innerText = `${data?.clouds?.all}%`;
+    city.innerText = "Bharthana";
+    flag.src = `https://flagcdn.com/16x12/zn.png`;
+    description.innerText = "yash";
+    wethericon.src = `http://openweathermap.org/img/wn/11d@2x.png`;
+    temperature.innerText = '23';
+    windspeed.innerText = `23 km/s`;
+    humidity.innerText = `56`;
+    cloud.innerText = `5%`;
 }
 
 async function fetctUserweatherdata(coordinate){
