@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/002f013f0b.js" crossorigin="anonymous"></script>
+    <title>Weather Application</title>
+</head>
+<body>
+    <div class="wrapper">
+
+       <h2 id="heading">Weather App</h2>
+
+       <!-- Tab-Container -->
+        <div class="tab-container">
+            <div class="tab" usertab>Your Tab</div>
+            <div class="tab" searchtab>Search Tab</div>
+        </div>
+
+        <!-- Grant Location Container -->
+        <div class="grant-location-window" grantlocation>
+            <div id="location">
+                <i class="fa-solid fa-location-dot" id="location-image"></i>
+            </div>
+            <h4 id="grant-location">Grant Location</h4>
+            <p>Allow Access to Get Wether Information</p>
+            <button id="btn" grantpermission>Grant Access</button>
+        </div>
+
+        <!-- Loading Gif -->
+        <div class="loading-container" loader>
+            <img src="loading.gif" width="10%">
+        </div>
+
+        <!-- YourTab Container -->
+        <div class="your-location-container" yourtab>
+            <div class="city-div">
+                <p id="city" location-data>Location</p>
+                <img countryflag/>
+            </div>
+                <p id="disc" desc>Haze</p>
+                <!-- Replace by image -->
+                <img  wethericon/>
+                <p id="temperature" temperature>34 °C</p>
+                <div class="wether-card">
+                    <div class="card">
+                        <i class="fa-solid fa-wind iconimage" id="windspeed"></i>
+                        <p>Windspeed</p>
+                        <p windspeed>12km/s</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-droplet iconimage" id="humidity"></i>
+                        <p>Humidity</p>
+                        <p humidity>12km/s</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-cloud iconimage" id="cloud"></i>
+                        <p>Clouds</p>
+                        <p cloud>20 %</p>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Search-Container -->
+        <div class="search-container" searchcontainer>
+            <input type="text" id="search">
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
