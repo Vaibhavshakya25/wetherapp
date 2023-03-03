@@ -43,13 +43,14 @@ function renderUI(data){
 async function fetctUserweatherdata(coordinate){
     try{
         const {lat,lon} = coordinate;
+        console.log('latitude->'+lat+'longitude->'+lon);
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
-        const response =
-        await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
-        const data = await response.json();
+        // const response =
+        // await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
+        // const data = await response.json();
         loader.classList.remove('active');
-        renderUI(data);
+        // renderUI(data);
         // your_tab_window.classList.add('active');
     }
     catch(err){
@@ -91,9 +92,7 @@ function showPosition(position){
     }
     sessionStorage.setItem("user_coordinate",JSON.stringify(coordinates));
     grantlocation_tab.classList.remove('active');
-    console.log('Latitude->'+coordinates.lat);
-    console.log('Longitude->'+coordinates.lon);
-    // fetctUserweatherdata(coordinates);
+    fetctUserweatherdata(coordinates);
 }
 usertab.addEventListener('click',()=>{
     switchtab(usertab);
