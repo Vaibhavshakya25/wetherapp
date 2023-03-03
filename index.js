@@ -42,22 +42,22 @@ function renderUI(data){
 
 async function fetctUserweatherdata(coordinate){
     const {lat,lon} = coordinate;
-    // console.log('latitude->'+lat+'longitude->'+lon);
-    grantlocation_tab.classList.remove('active');
-    loader.classList.add('active');
-    try{
-        const response =
-        await fetch(`https://api.openweathermap.org/data/2.5/weather? 
-                     lat=${lat}&lon=${lon}&appid=${apikey}`);
-        const data = await response.json();
-        loader.classList.remove('active');
-        your_tab_window.classList.add('.active');
-        renderUI(data);
-    }
-    catch(err){
-        loader.classList.remove('active');
-        alert('Failed to Fetch data');
-    }
+    console.log('latitude->'+lat+'longitude->'+lon);
+    // grantlocation_tab.classList.remove('active');
+    // loader.classList.add('active');
+    // try{
+    //     const response =
+    //     await fetch(`https://api.openweathermap.org/data/2.5/weather? 
+    //                  lat=${lat}&lon=${lon}&appid=${apikey}`);
+    //     const data = await response.json();
+    //     loader.classList.remove('active');
+    //     your_tab_window.classList.add('.active');
+    //     renderUI(data);
+    // }
+    // catch(err){
+    //     loader.classList.remove('active');
+    //     alert('Failed to Fetch data');
+    // }
 }
 
 function switchtab(clickedtab){
