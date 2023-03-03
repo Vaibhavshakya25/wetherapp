@@ -88,7 +88,7 @@ function showPosition(position){
         lat: position.coords.latitude,
         lon: position.coords.longitude,
     }
-
+    console.log(coordinates.lat);
     sessionStorage.setItem("user_coordinate",coordinates);
     grantlocation_tab.classList.remove('active');
 }
