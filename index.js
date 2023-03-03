@@ -44,6 +44,7 @@ function renderUI(data){
 async function fetctUserweatherdata(coordinate){
     try{
         const {lat,lon} = coordinate;
+        console.log(lat+" "+lon);
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
         const response =
