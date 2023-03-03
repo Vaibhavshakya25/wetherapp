@@ -38,6 +38,7 @@ function renderUI(data){
     windspeed.innerText = `${data?.wind?.speed} km/s`;
     humidity.innerText = `${data?.main?.humidity}`;
     cloud.innerText = `${data?.clouds?.all}%`;
+    
 }
 
 async function fetctUserweatherdata(coordinate){
@@ -89,8 +90,9 @@ function showPosition(position){
         lon: position.coords.longitude,
     }
     console.log(coordinates.lat);
-    sessionStorage.setItem("user_coordinate",coordinates);
+    sessionStorage.setItem("user_coordinate",JSON.parse(coordinates));
     grantlocation_tab.classList.remove('active');
+    fetctUserweatherdata(coordinates);
 }
 usertab.addEventListener('click',()=>{
     switchtab(usertab);
