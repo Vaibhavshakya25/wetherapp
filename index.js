@@ -38,20 +38,19 @@ function renderUI(data){
     windspeed.innerText = `${data?.wind?.speed} km/s`;
     humidity.innerText = `${data?.main?.humidity}`;
     cloud.innerText = `${data?.clouds?.all}%`;
-    your_tab_window.classList.add('active');
 }
 
 async function fetctUserweatherdata(coordinate){
     try{
         const {lat,lon} = coordinate;
-        console.log(lat+" "+lon);
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
         const response =
-        await fetch(`https://api.openweathermap.org/data/2.5/weatherlat=${lat}lon=${lon}&appid=${apikey}`);
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}lon=${lon}&appid=${apikey}`);
         const data = await response.json();
         loader.classList.remove('active');
         renderUI(data);
+        your_tab_window.classList.add('active');
     }
     catch(err){
         loader.classList.remove('active');
@@ -100,4 +99,3 @@ usertab.addEventListener('click',()=>{
 searchtab.addEventListener('click',()=>{
     switchtab(searchtab);
 });
-
