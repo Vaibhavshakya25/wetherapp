@@ -51,6 +51,7 @@ async function fetctUserweatherdata(coordinate){
         const data = await response.json();
         loader.classList.remove('active');
         renderUI(data);
+        your_tab_window.classList.add('.active');
     }
     catch(err){
         loader.classList.remove('active');
