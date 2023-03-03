@@ -31,7 +31,7 @@ function renderUI(data){
     const cloud = document.querySelector('[cloud]');
 
     city.innerText = "Bharthana";
-    flag.src = `https://flagcdn.com/16x12/zn.png`;
+    flag.src = `https://flagcdn.com/16x12/za.png`;
     description.innerText = "yash";
     wethericon.src = `http://openweathermap.org/img/wn/11d@2x.png`;
     temperature.innerText = '23';
