@@ -46,9 +46,9 @@ async function fetctUserweatherdata(coordinate){
         console.log('latitude->'+lat+'longitude->'+lon);
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
-        // const response =
-        // await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
-        // const data = await response.json();
+        const response =
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
+        const data = await response.json();
         loader.classList.remove('active');
         // renderUI(data);
         // your_tab_window.classList.add('active');
