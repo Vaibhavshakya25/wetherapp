@@ -31,13 +31,13 @@ function renderUI(data){
     const cloud = document.querySelector('[cloud]');
 
     city.innerText = data?.name;
-    flag.src = `https://flagcdn.com/16x12/${data?.sys?.country.toLowerCase()}.png`;
-    description.innerText = data?.weather?.description;
-    wethericon.src = `http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
-    temperature.innerText = data?.main?.temp;
-    windspeed.innerText = `${data?.wind?.speed} km/s`;
-    humidity.innerText = `${data?.main?.humidity}`;
-    cloud.innerText = `${data?.clouds?.all}%`;
+    // flag.src = `https://flagcdn.com/16x12/${data?.sys?.country.toLowerCase()}.png`;
+    // description.innerText = data?.weather?.description;
+    // wethericon.src = `http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
+    // temperature.innerText = data?.main?.temp;
+    // windspeed.innerText = `${data?.wind?.speed} km/s`;
+    // humidity.innerText = `${data?.main?.humidity}`;
+    // cloud.innerText = `${data?.clouds?.all}%`;
 }
 
 async function fetctUserweatherdata(coordinate){
