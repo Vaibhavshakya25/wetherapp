@@ -76,15 +76,22 @@ function switchtab(clickedtab){
 }
 grantbtn.addEventListener('click',()=>{
     if(window.navigator.geolocation){
-        window.navigator.geolocation.getCurrentPosition((position)=>{
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-        })
+        window.navigator.geolocation.getCurrentPosition(showPosition);
     }
     else{
-        alert('Not Support');
+        alert('Not Support in your Browser');
     }
 })
+
+function showPosition(position){
+    const coordinates = {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+    }
+
+    sessionStorage.setItem("user_coordinate",coordinates);
+    grantlocation_tab.classList.remove('active');
+}
 usertab.addEventListener('click',()=>{
     switchtab(usertab);
 });
