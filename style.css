@@ -117,7 +117,7 @@
     scale: 0;
 }
 
-.your-location-container .active{
+.your-location-container.active{
     scale: 1;
 }
 
