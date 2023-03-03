@@ -91,7 +91,9 @@ function showPosition(position){
     }
     sessionStorage.setItem("user_coordinate",JSON.stringify(coordinates));
     grantlocation_tab.classList.remove('active');
-    fetctUserweatherdata(coordinates);
+    console.log('Latitude->'+coordinates.lat);
+    console.log('Longitude->'+coordinates.lon);
+    // fetctUserweatherdata(coordinates);
 }
 usertab.addEventListener('click',()=>{
     switchtab(usertab);
