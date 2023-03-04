@@ -4,7 +4,7 @@ const grantbtn = document.querySelector('[grantpermission]');
 const loader = document.querySelector('[loader]');
 const grantlocation_tab = document.querySelector('[grantlocation]');
 const your_tab_window = document.querySelector('[yourtab]');
-const search_container = document.querySelector('[searchcontainer]');
+const searchbtn = document.querySelector('[searchicon]');
 const apikey = '6e465ced7f21c5207b02e1ebc68abaf0';
 let currenttab = usertab;
 currenttab.classList.add('current-tab');
@@ -42,7 +42,6 @@ function renderUI(data){
 async function fetctUserweatherdata(coordinates){
     try{
        const{lat,lon} = coordinates;
-        console.log('latitude->'+lat+'longitude->'+lon);
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
         const response =
@@ -101,3 +100,8 @@ usertab.addEventListener('click',()=>{
 searchtab.addEventListener('click',()=>{
     switchtab(searchtab);
 });
+
+searchbtn.addEventListener('click',()=>{
+    const searchcity = document.querySelector('[searchcity]');
+    
+})
