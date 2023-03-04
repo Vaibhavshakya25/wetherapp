@@ -8,7 +8,7 @@ const search_container = document.querySelector('[searchcontainer]');
 const apikey = '6e465ced7f21c5207b02e1ebc68abaf0';
 let currenttab = usertab;
 currenttab.classList.add('current-tab');
-
+getfromsessionstorage();
 function getfromsessionstorage(){
     const localcordinate = sessionStorage.getItem('user_coordinate');
     if(!localcordinate){
@@ -19,7 +19,6 @@ function getfromsessionstorage(){
         fetctUserweatherdata(coordinates);
     }
 }
-getfromsessionstorage();
 
 function renderUI(data){
     const city = document.querySelector('[location-data]');
