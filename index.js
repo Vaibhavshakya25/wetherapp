@@ -19,6 +19,7 @@ function getfromsessionstorage(){
         fetctUserweatherdata(coordinates);
     }
 }
+getfromsessionstorage();
 
 function renderUI(data){
     const city = document.querySelector('[location-data]');
