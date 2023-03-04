@@ -31,16 +31,17 @@ function renderUI(data){
     const cloud = document.querySelector('[cloud]');
 
     city.innerText = data?.name;
-    description.innerText = "yash";
-    temperature.innerText = '23';
-    windspeed.innerText = `23 km/s`;
-    humidity.innerText = `56`;
-    cloud.innerText = `5%`;
+    flag.src = `https://flagcdn.com/16x12/${data?.sys?.country.toLowerCase()}.png`;
+    description.innerText = data?.weather?.[0]?.description;
+    wethericon.src = ` http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
+    temperature.innerText = `${Math.floor((data?.main?.temp)-273.15)} °C`;
+    windspeed.innerText = `${data?.wind?.speed} Km/h`;
+    humidity.innerText = `${data?.main?.humidity}%`;
+    cloud.innerText = `${data?.clouds?.all}%`;
 }
-
-async function fetctUserweatherdata(coordinate){
+async function fetctUserweatherdata(coordinates){
     try{
-        const {lat,lon} = coordinate;
+       const{lat,lon} = coordinates;
         console.log('latitude->'+lat+'longitude->'+lon);
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
