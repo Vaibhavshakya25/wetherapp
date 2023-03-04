@@ -49,7 +49,7 @@ async function fetctUserweatherdata(coordinate){
         const data = await response.json();
         console.log(data);
         loader.classList.remove('active');
-        your_tab_window.classList.add('.active');
+        your_tab_window.classList.add('active');
         // renderUI(data);
     }
     catch(err){
