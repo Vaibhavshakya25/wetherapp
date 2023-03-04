@@ -45,7 +45,7 @@ async function fetctUserweatherdata(coordinate){
         grantlocation_tab.classList.remove('active');
         loader.classList.add('active');
         const response =
-        await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=26.811712&lon=79.004692&appid=6e465ced7f21c5207b02e1ebc68abaf0`);
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
         const data = await response.json();
         console.log(data);
         loader.classList.remove('active');
