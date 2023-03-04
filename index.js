@@ -47,7 +47,6 @@ async function fetctUserweatherdata(coordinates){
         const response =
         await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
         const data = await response.json();
-        console.log(data);
         loader.classList.remove('active');
         your_tab_window.classList.add('active');
         renderUI(data);
@@ -101,7 +100,21 @@ searchtab.addEventListener('click',()=>{
     switchtab(searchtab);
 });
 
+async function fetchCityUi(city){
+    loader.classList.add('active');
+    try{
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`);
+        const data = await response.json();
+        loader.classList.remove('active');
+        your_tab_window.classList.add('active');
+        renderUI(data);
+    }
+    catch(err){
+        alert('Some Error is occured');
+    }
+}
+
 searchbtn.addEventListener('click',()=>{
     const searchcity = document.querySelector('[searchcity]');
-    
+    fetchCityUi(searchcity.value);
 })
