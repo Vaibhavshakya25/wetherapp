@@ -50,7 +50,7 @@ async function fetctUserweatherdata(coordinate){
         console.log(data);
         loader.classList.remove('active');
         your_tab_window.classList.add('.active');
-        renderUI(data);
+        // renderUI(data);
     }
     catch(err){
         loader.classList.remove('active');
