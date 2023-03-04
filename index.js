@@ -30,7 +30,7 @@ function renderUI(data){
     const humidity = document.querySelector('[humidity]');
     const cloud = document.querySelector('[cloud]');
 
-    city.innerText = "Bharthana";
+    city.innerText = data?.name;
     description.innerText = "yash";
     temperature.innerText = '23';
     windspeed.innerText = `23 km/s`;
@@ -50,7 +50,7 @@ async function fetctUserweatherdata(coordinate){
         console.log(data);
         loader.classList.remove('active');
         your_tab_window.classList.add('active');
-        // renderUI(data);
+        renderUI(data);
     }
     catch(err){
         loader.classList.remove('active');
