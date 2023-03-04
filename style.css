@@ -110,10 +110,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
-    width: 60%;
+    gap: 1px;
+    width: 70%;
     position: absolute;
-    bottom: 1em;
+    bottom: 2px;
     scale: 0;
 }
 
