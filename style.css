@@ -95,11 +95,11 @@
 
 .loading-container{
     position: absolute;
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    top:30%;
+    top:50%;
     scale:0;
 }
 
@@ -132,7 +132,9 @@
     color: white;
     font-size: 2.5em;
 }
-
+#country-image{
+    font-size: 5em;
+}
 #disc{
     color: white;
     font-size: 1.5em;
@@ -162,6 +164,8 @@
   padding: 1em;
   width: 25%;
   border: 1px solid white;
+  font-size: 1em;
+  font-weight: bold;
   gap: 1em;
   line-height: 1;
   display: flex;
@@ -212,7 +216,9 @@
     font-size: 1em;
     outline: none;
 }
-
+#country-image{
+    width: 0.4em;
+}
 .search-icon{
     display: flex;
     justify-content: center;
@@ -224,4 +230,90 @@
     color: white;
     width: 40px;
     height: 40px;
+}
+@media ((min-width:180px) and (max-width:500px)) {
+
+    body{
+        background: rgb(22,48,77);
+    }
+
+    .wrapper{
+        width: 100%;
+        height: 100%;
+        background: rgb(22,48,77);
+    }
+
+    .tab-container{
+        gap: 1em;
+        justify-content: space-between;
+        font-size: 10px;
+        margin-top: 1em;
+        width: 90%;
+    }
+
+    .tab{
+        width: auto;
+        padding: 1em;
+        font-weight: bold;
+    }
+
+    .grant-location-window{
+        margin-top: 2em;
+        width: 90%;
+    }
+
+    #grant-location{
+        text-align: center;
+        font-size: 1.6em;
+        width: 90%;
+    }
+
+    #descr{
+        text-align: center;
+    }
+
+    .search-container{
+        width: 90%;
+    }
+
+    #search{
+        width: 80%;
+    }
+    .search-icon{
+        background-color: rgba(145, 202, 60, 0.779);
+        padding: 1em;
+    }
+
+    .your-location-container{
+        top:35%;
+    }
+    .loading-container{
+        top: 50%;
+        width: 50%;
+    }
+    #country-image{
+        width: 0.4em;
+    }
+
+    #disc{
+        text-transform:capitalize;
+    }
+
+    .wether-card{
+        flex-direction: column;
+    }
+    .card{
+        width: 95%;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+    #windspeed{
+        font-size: 2em;
+    }
+    #humidity{
+        font-size: 2em;
+    }
+    #cloud{
+        font-size: 2em;
+    }
 }

@@ -30,15 +30,29 @@ function renderUI(data){
     const windspeed = document.querySelector('[windspeed]');
     const humidity = document.querySelector('[humidity]');
     const cloud = document.querySelector('[cloud]');
-
-    city.innerText = data?.name;
-    flag.src = `https://flagcdn.com/16x12/${data?.sys?.country.toLowerCase()}.png`;
-    description.innerText = data?.weather?.[0]?.description;
-    wethericon.src = ` http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
-    temperature.innerText = `${Math.floor((data?.main?.temp)-273.15)} °C`;
-    windspeed.innerText = `${data?.wind?.speed} Km/h`;
-    humidity.innerText = `${data?.main?.humidity}%`;
-    cloud.innerText = `${data?.clouds?.all}%`;
+    try{
+        city.innerText = data?.name;
+        try{
+            flag.src = `https://flagcdn.com/16x12/${data?.sys?.country.toLowerCase()}.png`;
+        }
+        catch(err){
+            alert('Country Flag Fetching Problem');
+        }
+        description.innerText = data?.weather?.[0]?.description;
+        try{
+            wethericon.src = ` http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
+        }
+        catch(err){
+            alert('Error in Wether Icon');
+        }
+        temperature.innerText = `${Math.floor((data?.main?.temp)-273.15)} °C`;
+        windspeed.innerText = `${data?.wind?.speed} Km/h`;
+        humidity.innerText = `${data?.main?.humidity}%`;
+        cloud.innerText = `${data?.clouds?.all}%`;
+    }
+    catch(err){
+        alert('Undefined Data',err);
+    }
 }
 async function fetctUserweatherdata(coordinates){
     try{
@@ -111,11 +125,12 @@ async function fetchCityUi(city){
         renderUI(data);
     }
     catch(err){
-        alert('Some Error is occured');
+        alert('Some Error is occured',err);
     }
 }
 
 searchbtn.addEventListener('click',()=>{
+    your_tab_window.classList.remove('active');
     const searchcity = document.querySelector('[searchcity]');
     fetchCityUi(searchcity.value);
 })
