@@ -55,17 +55,16 @@ function renderUI(data){
     }
 }
 async function fetctUserweatherdata(coordinates){
-    loader.classList.add('active');
     grantlocation_tab.classList.remove('active');
+    loader.classList.add('active');
     try{
        const{lat,lon} = coordinates;
         const response =
         await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
         const data = await response.json();
         loader.classList.remove('active');
-        console.log(data);
-        your_tab_window.classList.add('active');
         renderUI(data);
+        your_tab_window.classList.add('active');
     }
     catch(err){
         loader.classList.remove('active');
