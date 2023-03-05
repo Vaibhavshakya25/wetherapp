@@ -21,7 +21,7 @@ function getfromsessionstorage(){
     }
 }
 
-function renderUI(data){
+function renderUI(data,aqi){
     const city = document.querySelector('[location-data]');
     const flag = document.querySelector('[countryflag]');
     const description = document.querySelector('[desc]');
@@ -30,6 +30,8 @@ function renderUI(data){
     const windspeed = document.querySelector('[windspeed]');
     const humidity = document.querySelector('[humidity]');
     const cloud = document.querySelector('[cloud]');
+    const index = document.querySelector('[index]');
+    const status = document.querySelector('[status]');
     try{
         city.innerText = data?.name;
         try{
@@ -40,7 +42,7 @@ function renderUI(data){
         }
         description.innerText = data?.weather?.[0]?.description;
         try{
-            wethericon.src = ` http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
+            wethericon.src = `http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`;
         }
         catch(err){
             alert('Error in Wether Icon');
@@ -49,6 +51,7 @@ function renderUI(data){
         windspeed.innerText = `${data?.wind?.speed} Km/h`;
         humidity.innerText = `${data?.main?.humidity}%`;
         cloud.innerText = `${data?.clouds?.all}%`;
+        index.innerText = `${aqi?.list?.[0]?.main?.aqi}`;
     }
     catch(err){
         alert('Undefined Data',err);
@@ -64,10 +67,10 @@ async function fetctUserweatherdata(coordinates){
         const aqidata =
         await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apikey}`);
         const data = await response.json();
-        data = await aqidata.json();
+        const aqi= await aqidata.json();
         loader.classList.remove('active');
         your_tab_window.classList.add('active');
-        renderUI(data);
+        renderUI(data,aqi);
     }
     catch(err){
         loader.classList.remove('active');
