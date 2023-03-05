@@ -72,8 +72,6 @@ async function fetctUserweatherdata(coordinates){
         alert('Failed to Fetch data');
     }
 }
-fetctUserweatherdata();
-
 function switchtab(clickedtab){
    if(clickedtab!=currenttab){
         currenttab.classList.remove('current-tab');
