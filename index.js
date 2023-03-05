@@ -21,7 +21,7 @@ function getfromsessionstorage(){
     }
 }
 
-function renderUI(data,aqi){
+function renderUI(data){
     const city = document.querySelector('[location-data]');
     const flag = document.querySelector('[countryflag]');
     const description = document.querySelector('[desc]');
@@ -30,8 +30,6 @@ function renderUI(data,aqi){
     const windspeed = document.querySelector('[windspeed]');
     const humidity = document.querySelector('[humidity]');
     const cloud = document.querySelector('[cloud]');
-    const index = document.querySelector('[index]');
-    const status = document.querySelector('[status]');
     try{
         city.innerText = data?.name;
         try{
@@ -51,7 +49,6 @@ function renderUI(data,aqi){
         windspeed.innerText = `${data?.wind?.speed} Km/h`;
         humidity.innerText = `${data?.main?.humidity}%`;
         cloud.innerText = `${data?.clouds?.all}%`;
-        index.innerText = `${aqi?.list?.[0]?.main?.aqi}`;
     }
     catch(err){
         alert('Undefined Data',err);
@@ -64,10 +61,7 @@ async function fetctUserweatherdata(coordinates){
         loader.classList.add('active');
         const response =
         await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
-        const aqidata =
-        await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apikey}`);
         const data = await response.json();
-        const aqi= await aqidata.json();
         loader.classList.remove('active');
         your_tab_window.classList.add('active');
         renderUI(data,aqi);
