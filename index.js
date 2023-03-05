@@ -55,14 +55,15 @@ function renderUI(data){
     }
 }
 async function fetctUserweatherdata(coordinates){
+    loader.classList.add('active');
+    grantlocation_tab.classList.remove('active');
     try{
        const{lat,lon} = coordinates;
-        grantlocation_tab.classList.remove('active');
-        loader.classList.add('active');
         const response =
         await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`);
         const data = await response.json();
         loader.classList.remove('active');
+        console.log(data);
         your_tab_window.classList.add('active');
         renderUI(data);
     }
@@ -71,6 +72,7 @@ async function fetctUserweatherdata(coordinates){
         alert('Failed to Fetch data');
     }
 }
+fetctUserweatherdata();
 
 function switchtab(clickedtab){
    if(clickedtab!=currenttab){
