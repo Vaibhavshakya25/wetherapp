@@ -5,7 +5,10 @@ const loader = document.querySelector('[loader]');
 const grantlocation_tab = document.querySelector('[grantlocation]');
 const your_tab_window = document.querySelector('[yourtab]');
 const search_container = document.querySelector('[searchcontainer]');
+const message = document.querySelector('#message');
+const cod = document.querySelector('#cod');
 const searchbtn = document.querySelector('[searchicon]');
+const errorimage = document.querySelector('.error-div');
 const apikey = '6e465ced7f21c5207b02e1ebc68abaf0';
 let currenttab = usertab;
 currenttab.classList.add('current-tab');
@@ -56,6 +59,7 @@ function renderUI(data){
 }
 async function fetctUserweatherdata(coordinates){
     grantlocation_tab.classList.remove('active');
+    errorimage.classList.remove('active');
     loader.classList.add('active');
     try{
        const{lat,lon} = coordinates;
@@ -116,20 +120,29 @@ searchtab.addEventListener('click',()=>{
 
 async function fetchCityUi(city){
     loader.classList.add('active');
+    let database = undefined;
     try{
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`);
-        const data = await response.json();
-        loader.classList.remove('active');
+        database = await response.json();
+       if(database?.cod == 404){
+            throw "Erorr 404 Found";
+       }
+       if((database?.cod)!=404){
+        renderUI(database);
         your_tab_window.classList.add('active');
-        renderUI(data);
+       }
     }
     catch(err){
-        alert('Some Error is occured',err);
+        cod.innerText = database?.cod;
+        message.innerText = database?.message;
+        errorimage.classList.add('active');
     }
+    loader.classList.remove('active');
 }
 
 searchbtn.addEventListener('click',()=>{
     your_tab_window.classList.remove('active');
+    errorimage.classList.remove('active');
     const searchcity = document.querySelector('[searchcity]');
     fetchCityUi(searchcity.value);
 })
