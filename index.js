@@ -8,7 +8,10 @@ const search_container = document.querySelector('[searchcontainer]');
 const message = document.querySelector('#message');
 const cod = document.querySelector('#cod');
 const searchbtn = document.querySelector('[searchicon]');
+const minimum = document.querySelector('#minmum');
+const maximum = document.querySelector('#maximum');
 const errorimage = document.querySelector('.error-div');
+const visibility = document.querySelector('[visibility]');
 const apikey = '6e465ced7f21c5207b02e1ebc68abaf0';
 let currenttab = usertab;
 currenttab.classList.add('current-tab');
@@ -33,6 +36,7 @@ function renderUI(data){
     const windspeed = document.querySelector('[windspeed]');
     const humidity = document.querySelector('[humidity]');
     const cloud = document.querySelector('[cloud]');
+    const progress = document.querySelector('#progress');
     try{
         city.innerText = data?.name;
         try{
@@ -49,9 +53,15 @@ function renderUI(data){
             alert('Error in Wether Icon');
         }
         temperature.innerText = `${Math.floor((data?.main?.temp)-273.15)} °C`;
-        windspeed.innerText = `${data?.wind?.speed} Km/h`;
+        windspeed.innerText = `${data?.wind?.speed} m/s`;
         humidity.innerText = `${data?.main?.humidity}%`;
         cloud.innerText = `${data?.clouds?.all}%`;
+        progress.min = data?.sys?.sunrise;
+        progress.max = data?.sys?.sunset;
+        progress.value = data?.dt;
+        minimum.innerText = ` Minimum Temerature ${Math.floor((data?.main?.temp_min)-273.15)} °C`;
+        maximum.innerText = ` Maximum Temperature ${Math.floor((data?.main?.temp_max)-273.15)} °C`;
+        visibility.innerText = `${(data?.visibility)/1000} Km`;
     }
     catch(err){
         alert('Undefined Data',err);
@@ -129,6 +139,7 @@ async function fetchCityUi(city){
        }
        if((database?.cod)!=404){
         renderUI(database);
+        console.log(database);
         your_tab_window.classList.add('active');
        }
     }

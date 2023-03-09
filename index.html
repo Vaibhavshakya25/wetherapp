@@ -51,8 +51,14 @@
                 <img id="country-image" countryflag/>
             </div>
                 <p id="disc" desc>Haze</p>
-                <!-- Replace by image -->
-                <img  wethericon/>
+                <img wethericon/>
+                <div class="timezone">
+                    <input type="range"  id="progress" width="80%">
+                     <div class="temp">
+                        <p id="minmum"></p>
+                        <p id="maximum"></p>
+                     </div>
+                </div>
                 <p id="temperature" temperature>34 °C</p>
                 <div class="wether-card">
                     <div class="card">
@@ -69,6 +75,11 @@
                         <i class="fa-solid fa-cloud iconimage" id="cloud"></i>
                         <p>Clouds</p>
                         <p cloud>20 %</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-sharp fa-solid fa-eye-slash iconimage" id="visibility"></i>
+                        <p>Visibility</p>
+                        <p visibility></p>
                     </div>
                 </div>
         </div>
