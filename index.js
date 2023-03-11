@@ -139,7 +139,6 @@ async function fetchCityUi(city){
        }
        if((database?.cod)!=404){
         renderUI(database);
-        console.log(database);
         your_tab_window.classList.add('active');
        }
     }
