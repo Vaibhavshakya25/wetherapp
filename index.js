@@ -10,7 +10,9 @@ const cod = document.querySelector('#cod');
 const searchbtn = document.querySelector('[searchicon]');
 const minimum = document.querySelector('#minmum');
 const maximum = document.querySelector('#maximum');
+const search = document.getElementById('#search');
 const errorimage = document.querySelector('.error-div');
+const searchcity = document.querySelector('[searchcity]');
 const visibility = document.querySelector('[visibility]');
 const apikey = '6e465ced7f21c5207b02e1ebc68abaf0';
 let currenttab = usertab;
@@ -153,6 +155,13 @@ async function fetchCityUi(city){
 searchbtn.addEventListener('click',()=>{
     your_tab_window.classList.remove('active');
     errorimage.classList.remove('active');
-    const searchcity = document.querySelector('[searchcity]');
     fetchCityUi(searchcity.value);
+})
+
+searchcity.addEventListener('keypress',(e)=>{
+   if(e.key == 'Enter'){
+    your_tab_window.classList.remove('active');
+    errorimage.classList.remove('active');
+    fetchCityUi(searchcity.value);
+   }
 })
